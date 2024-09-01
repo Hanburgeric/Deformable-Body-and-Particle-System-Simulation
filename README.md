@@ -2,25 +2,29 @@
 
 An extension of the previous project, [Pinball](https://github.com/Hanburgeric/Pinball), asdf.
 
+<p align=center>
+<img width=720 src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTVvOTZwMHA3ejd0d2lzN2h5NHhvdmtwZWlhM3Bxb3o3cHVzN2Y3YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/At0gGRg8mntzr3S1C8/giphy.gif"/>
+</p><br>
+
 <br>
 
 ## Features
 ### Deformable Body (Cloth)
-asdf.<br>
+asdf. Interacts with the rigid body, but NOT the particle system (yet).<br>
 <p align=center>
-<img width=400 src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmkwM3g2OGlmaTZqamJhb2liaDN4azRlOG4wbXV3YmkzeTljaHRkbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fFlgq2DULa0ZIrykQi/giphy.gif"/>
+<img width=720 src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExenV3bWV1MzRvZDZtaGtsZGp0c3UwYzJwcmlzbDU1d29yMWowYmZ6bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Or2sPBUWa1bJbqjRKz/giphy.gif"/>
 </p><br>
 
 ### Particle System (Fluid)
-asdf.<br>
+asdf. Interacts with the each other and the rigid body, but NOT the deformable body (yet).<br>
 <p align=center>
-<img width=400 src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnJ0cXpmcHF2OWh4dTY1Y25wZWdhMTIya21tOTAyaGR0eG1pdmpreCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LTixAYGXSXNqvoVDsA/giphy.gif"/>
+<img width=720 src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjI0YXk5djN2eWZ4MHZtbWxrNjJodnlkMHgxdnA2bTlvc2IxYXJkNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UajdTZ5v8naqE9vkL9/giphy.gif"/>
 </p><br>
 
 ### Rigid Body (Sphere)
-asdf.<br>
+asdf. Interacts with both the deformable body and the particle system.<br>
 <p align=center>
-<img width=400 src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExaWJmMWl5dnB0b2VsdDg5OHUzazduaDF3bms0cHg0dTR2dXppMTN2cyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/aJqAZZKFszaogWyO7c/giphy.gif"/>
+<img width=720 src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzhwMnJocDA4NmlvOWF4NTVtb3VsZXZvbjV4djMwNGZ2OG8yenVjZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/bMrOlzP3KGUIwKGQK8/giphy.gif"/>
 </p><br>
 
 ## Build and Deployment
@@ -62,7 +66,7 @@ Particle System
  - `-` : subtract 100 particles.
 <br>
 
-Rigid Body (Sphere)
+Rigid Body
  - `w` : move sphere forward.
  - `a` : move sphere left.
  - `s` : move sphere backward.
