@@ -1,36 +1,36 @@
 # Deformable Body and Particle System Simulation
-
-An extension of the previous project, [Pinball](https://github.com/Hanburgeric/Pinball), this time exploring , namely deformable bodies and fluids.
-
-As such, the project abandons Box2D in favor of a proprietary physics engine.
-
 <p align=center>
 <img width=720 src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTVvOTZwMHA3ejd0d2lzN2h5NHhvdmtwZWlhM3Bxb3o3cHVzN2Y3YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/At0gGRg8mntzr3S1C8/giphy.gif"/>
 </p><br>
+
+An extension of the previous project, [Pinball](https://github.com/Hanburgeric/Pinball), except with a focus on the physical properties of deformable bodies and fluids, along with their respective interactions (i.e. collisions).
+
+In addition, the project shifts its focus to 3D graphics in order to better test these systems' capabilities and limitations.
+
+As a result of these changes, the project abandons Box2D in favor of a proprietary physics engine.
 
 <br>
 
 ## Features
 ### Deformable Body
-A deformable body in the form of a cloth, modeled using a simple mass-spring system (MSS).
+A deformable body in the form of a cloth, modeled using a simple mass-spring system (MSS), consisting of a series of nodes connected by a combination of structural, shear, and flexion springs.
 
-<br>Interacts with the rigid body, but NOT the particle system (yet).<br>
 <p align=center>
 <img width=720 src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExenV3bWV1MzRvZDZtaGtsZGp0c3UwYzJwcmlzbDU1d29yMWowYmZ6bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Or2sPBUWa1bJbqjRKz/giphy.gif"/>
 </p><br>
 
 ### Particle System
-A particle system meant to simulate fluids.
+A particle system meant to simulate fluids. Currently, it is implemented quite crudely, as particles are simply treated as individual rigid bodies with little to no consideration for actual fluid mechanics (e.g. Navier-Stokes equations). This is expected to change when the project is revisited in the future and a more apt model is chosen and implemented (e.g. smoothed-particle hydrodynamics).
 
-<br>Interacts with the each other and the rigid body, but NOT the deformable body (yet).<br>
+Additionally, the particle system currently also has no way of interacting with the deformable body; this, too, will be implemented in the future, but only after the above changes have already been made.
+
 <p align=center>
 <img width=720 src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjI0YXk5djN2eWZ4MHZtbWxrNjJodnlkMHgxdnA2bTlvc2IxYXJkNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UajdTZ5v8naqE9vkL9/giphy.gif"/>
 </p><br>
 
 ### Rigid Body
-asdf.
+A standard rigid body in the form of a sphere.
 
-<br>Interacts with both the deformable body and the particle system.<br>
 <p align=center>
 <img width=720 src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzhwMnJocDA4NmlvOWF4NTVtb3VsZXZvbjV4djMwNGZ2OG8yenVjZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/bMrOlzP3KGUIwKGQK8/giphy.gif"/>
 </p><br>
@@ -89,6 +89,7 @@ Camera
 
 ## To-Do
  - Implement collisions between the deformable body and particles.
+ - Alter the underlying physics of the particle system to more reflective of the equations of fluid mechanics.
  - Update code to use modern OpenGL. 
  - Otherwise general refactoring of code to meet current standards.
 
