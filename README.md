@@ -1,6 +1,8 @@
 # Deformable Body and Particle System Simulation
 
-An extension of the previous project, [Pinball](https://github.com/Hanburgeric/Pinball), asdf.
+An extension of the previous project, [Pinball](https://github.com/Hanburgeric/Pinball), this time exploring , namely deformable bodies and fluids.
+
+As such, the project abandons Box2D in favor of a proprietary physics engine.
 
 <p align=center>
 <img width=720 src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTVvOTZwMHA3ejd0d2lzN2h5NHhvdmtwZWlhM3Bxb3o3cHVzN2Y3YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/At0gGRg8mntzr3S1C8/giphy.gif"/>
@@ -9,20 +11,26 @@ An extension of the previous project, [Pinball](https://github.com/Hanburgeric/P
 <br>
 
 ## Features
-### Deformable Body (Cloth)
-asdf. Interacts with the rigid body, but NOT the particle system (yet).<br>
+### Deformable Body
+A deformable body in the form of a cloth, modeled using a simple mass-spring system (MSS).
+
+<br>Interacts with the rigid body, but NOT the particle system (yet).<br>
 <p align=center>
 <img width=720 src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExenV3bWV1MzRvZDZtaGtsZGp0c3UwYzJwcmlzbDU1d29yMWowYmZ6bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Or2sPBUWa1bJbqjRKz/giphy.gif"/>
 </p><br>
 
-### Particle System (Fluid)
-asdf. Interacts with the each other and the rigid body, but NOT the deformable body (yet).<br>
+### Particle System
+A particle system meant to simulate fluids.
+
+<br>Interacts with the each other and the rigid body, but NOT the deformable body (yet).<br>
 <p align=center>
 <img width=720 src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjI0YXk5djN2eWZ4MHZtbWxrNjJodnlkMHgxdnA2bTlvc2IxYXJkNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UajdTZ5v8naqE9vkL9/giphy.gif"/>
 </p><br>
 
-### Rigid Body (Sphere)
-asdf. Interacts with both the deformable body and the particle system.<br>
+### Rigid Body
+asdf.
+
+<br>Interacts with both the deformable body and the particle system.<br>
 <p align=center>
 <img width=720 src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzhwMnJocDA4NmlvOWF4NTVtb3VsZXZvbjV4djMwNGZ2OG8yenVjZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/bMrOlzP3KGUIwKGQK8/giphy.gif"/>
 </p><br>
