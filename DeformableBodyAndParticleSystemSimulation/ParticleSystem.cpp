@@ -401,9 +401,9 @@ void ParticleSystem::collisionResponse(const float& restitution, const float& de
 			//Creates the hash grid
 			for (int i = 0; i < m_particleList.size(); i++)
 			{
-				int x = (int)((m_particleList[i].m_position.x + m_bucketLength) / 2.0f);
-				int y = (int)((m_particleList[i].m_position.y + m_bucketLength) / 2.0f);
-				int z = (int)((m_particleList[i].m_position.z + m_bucketLength) / 2.0f);
+				int x = (int)((m_particleList[i].m_position.x - m_boundaryVertices[0]) / m_bucketLength);
+				int y = (int)((m_particleList[i].m_position.y - m_boundaryVertices[2]) / m_bucketLength);
+				int z = (int)((m_particleList[i].m_position.z - m_boundaryVertices[4]) / m_bucketLength);
 
 				if (x < 0)
 				{
@@ -436,9 +436,9 @@ void ParticleSystem::collisionResponse(const float& restitution, const float& de
 			//Pushes back neighboring particles
 			for (int i = 0; i < m_particleList.size(); i++)
 			{
-				int x = (int)((m_particleList[i].m_position.x + m_bucketLength) / 2.0f);
-				int y = (int)((m_particleList[i].m_position.y + m_bucketLength) / 2.0f);
-				int z = (int)((m_particleList[i].m_position.z + m_bucketLength) / 2.0f);
+				int x = (int)((m_particleList[i].m_position.x - m_boundaryVertices[0]) / m_bucketLength);
+				int y = (int)((m_particleList[i].m_position.y - m_boundaryVertices[2]) / m_bucketLength);
+				int z = (int)((m_particleList[i].m_position.z - m_boundaryVertices[4]) / m_bucketLength);
 
 				std::vector<int>neighborList;
 
@@ -508,12 +508,12 @@ void ParticleSystem::collisionResponse(const float& restitution, const float& de
 		}
 
 		std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
-		double dt = std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1).count();
+		double dt = std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1).count();
 		m_averageTime[m_collisionMode] = m_averageTime[m_collisionMode] *
 			(m_numIter[m_collisionMode] - 1.0f) / m_numIter[m_collisionMode] +
 			dt / m_numIter[m_collisionMode];
 		m_numIter[m_collisionMode] += 1.0f;
-		printf("Average Time (Collision Mode %d): %0.2f ns\n", m_collisionMode + 1, m_averageTime[m_collisionMode]);
+		printf("Average Time (Collision Mode %d): %0.2f ms\n", m_collisionMode + 1, m_averageTime[m_collisionMode]);
 	}
 }
 
