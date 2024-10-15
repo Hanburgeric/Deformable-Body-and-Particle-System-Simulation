@@ -83,7 +83,7 @@ void Simulator::init()
 	m_pGround = new Ground(Vec3(0.0f, 0.0f, 0.0f));
 	m_pSphere = new Sphere(Vec3(0.0f, 10.0f, -10.0f), 10.0f);
 	m_pCloth = new Cloth(50, 1, 50, 1, 1, 1, 1500.0f, 50.0f, 1000.0f, 0.5f);
-	m_pParticleSystem = new ParticleSystem(1000, 0.75f, 0.5f, emitterVertices, boundaryVertices, 1, 3.0f);
+	m_pParticleSystem = new ParticleSystem(1000, 0.75f, 0.5f, emitterVertices, boundaryVertices, 1, 2.5f);
 
 	//Light initialization and settings
 	glShadeModel(GL_SMOOTH);

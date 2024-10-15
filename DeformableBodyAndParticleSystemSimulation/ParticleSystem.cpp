@@ -399,61 +399,35 @@ void ParticleSystem::collisionResponse(const float& restitution, const float& de
 			}
 
 			//Creates the hash grid
-			for (int i = 0; i < m_particleList.size(); i++)
-			{
+			for (int i = 0; i < m_particleList.size(); i++) {
 				int x = (int)((m_particleList[i].m_position.x - m_boundaryVertices[0]) / m_bucketLength);
 				int y = (int)((m_particleList[i].m_position.y - m_boundaryVertices[2]) / m_bucketLength);
 				int z = (int)((m_particleList[i].m_position.z - m_boundaryVertices[4]) / m_bucketLength);
 
-				if (x < 0)
-				{
-					x = 0;
-				}
-				else if (x > m_numBucketsX - 1)
-				{
-					x = m_numBucketsX - 1;
-				}
-				if (y < 0)
-				{
-					y = 0;
-				}
-				else if (y > m_numBucketsY - 1)
-				{
-					y = m_numBucketsY - 1;
-				}
-				if (z < 0)
-				{
-					z = 0;
-				}
-				else if (z > m_numBucketsZ - 1)
-				{
-					z = m_numBucketsZ - 1;
-				}
+				if (x < 0) x = 0; else if (x > m_numBucketsX - 1) x = m_numBucketsX - 1;
+				if (y < 0) y = 0; else if (y > m_numBucketsY - 1) y = m_numBucketsY - 1;
+				if (z < 0) z = 0; else if (z > m_numBucketsZ - 1) z = m_numBucketsZ - 1;
 
 				m_pHashGrid[x + m_numBucketsX * (y + m_numBucketsY * z)].push_back(i);
 			}
 
 			//Pushes back neighboring particles
-			for (int i = 0; i < m_particleList.size(); i++)
-			{
+			for (int i = 0; i < m_particleList.size(); i++) {
 				int x = (int)((m_particleList[i].m_position.x - m_boundaryVertices[0]) / m_bucketLength);
 				int y = (int)((m_particleList[i].m_position.y - m_boundaryVertices[2]) / m_bucketLength);
 				int z = (int)((m_particleList[i].m_position.z - m_boundaryVertices[4]) / m_bucketLength);
 
+				int xMin = std::max(0, x - m_hashRadius); int xMax = std::min(m_numBucketsX, x + m_hashRadius);
+				int yMin = std::max(0, y - m_hashRadius); int yMax = std::min(m_numBucketsY, y + m_hashRadius);
+				int zMin = std::max(0, z - m_hashRadius); int zMax = std::min(m_numBucketsZ, z + m_hashRadius);
+
 				std::vector<int>neighborList;
 
-				for (int x0 = x - m_hashRadius; x0 <= x + m_hashRadius; x0++)
-				{
-					for (int y0 = y - m_hashRadius; y0 <= y + m_hashRadius; y0++)
-					{
-						for (int z0 = z - m_hashRadius; z0 <= z + m_hashRadius; z0++)
-						{
-							if (x0 >= 0 && x0 <= m_numBucketsX - 1 && y0 >= 0 && y0 <= m_numBucketsY - 1 && z0 >= 0 && z0 <= m_numBucketsZ - 1)
-							{
-								for (int j = 0; j < m_pHashGrid[x0 + m_numBucketsX * (y0 + m_numBucketsY * z0)].size(); j++)
-								{
-									neighborList.push_back(m_pHashGrid[x0 + m_numBucketsX * (y0 + m_numBucketsY * z0)][j]);
-								}
+				for (int x0 = xMin; x0 < xMax; ++x0) {
+					for (int y0 = yMin; y0 < yMax; ++y0) {
+						for (int z0 = zMin; z0 < zMax; ++z0) {
+							for (int j = 0; j < m_pHashGrid[x0 + m_numBucketsX * (y0 + m_numBucketsY * z0)].size(); j++) {
+								neighborList.push_back(m_pHashGrid[x0 + m_numBucketsX * (y0 + m_numBucketsY * z0)][j]);
 							}
 						}
 					}
