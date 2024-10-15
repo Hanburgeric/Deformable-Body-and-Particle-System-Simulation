@@ -31,7 +31,7 @@ int main(int argc, char* argv[])
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glutInitWindowPosition((glutGet(GLUT_SCREEN_WIDTH) - (int)WINDOW_WIDTH) / 2, (glutGet(GLUT_SCREEN_HEIGHT) - (int)WINDOW_HEIGHT) / 2);
 	glutInitWindowSize((int)WINDOW_WIDTH, (int)WINDOW_HEIGHT);
-	glutCreateWindow("Particle Simulation");
+	glutCreateWindow("Deformable Body and Particle System Simulation");
 	glEnable(GL_DEPTH_TEST);
 
 	printf("==================================================CONTROLS==================================================\n");
